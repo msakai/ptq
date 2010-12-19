@@ -17,6 +17,10 @@ Extra-Source-Files:
    misc/Test.hs, misc/Test2.agda, misc/Test3.hs
 Data-Files: cgi/index.html, cgi/main.html
 
+Source-Repository head
+  Type:     git
+  Location: git://github.com/msakai/ptq.git
+
 Flag UTF8Terminal
   Description: Use UTF-8 for terminal I/O
   Default: False
