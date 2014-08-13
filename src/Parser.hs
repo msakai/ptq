@@ -12,6 +12,7 @@
 module Parser (parse, parseAny) where
 
 import Data.Char
+import Control.Applicative
 import Control.Monad
 import qualified Data.IntSet as IS
 
@@ -27,6 +28,17 @@ newtype Parser a
     { runParser :: Env -> State -> [Token] -> [(a, State, [Token])]
     }
 
+instance Functor Parser where
+    fmap = liftM
+
+instance Applicative Parser where
+    pure  = return
+    (<*>) = ap
+
+instance Alternative Parser where
+    empty = mzero
+    (<|>) = mplus
+
 instance Monad Parser where
     return x = Parser $ \_ s ts -> [(x,s,ts)]
     m >>= f = Parser $ \env s ts ->
@@ -37,10 +49,6 @@ instance MonadPlus Parser where
     mzero = Parser $ \_ _ _ -> []
     mplus x y = Parser $ \env s ts ->
                 runParser x env s ts ++ runParser y env s ts
-
-infixr 0 <|>
-(<|>) :: Parser a -> Parser a -> Parser a
-(<|>) = mplus
 
 anyToken :: Parser Token
 anyToken = Parser g
@@ -186,13 +194,6 @@ token x =
     do y <- anyToken
        guard $ x==y
        return y
-
-many, many1 :: Parser a -> Parser [a]
-many p = many1 p <|> return []
-many1 p =
-    do x  <- p
-       xs <- many p
-       return (x:xs)
 
 chainr1 :: Parser a -> Parser (a->a->a) -> Parser a
 chainr1 p q =
