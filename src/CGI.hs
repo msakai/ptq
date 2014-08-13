@@ -8,7 +8,7 @@
 -- Stability   :  experimental
 -- Portability :  non-portable
 
-{-# LANGUAGE CPP, ScopedTypeVariables #-}
+{-# LANGUAGE CPP #-}
 
 --
 -- $Id: CGI.hs,v 1.2 2006/05/14 17:29:22 aamine Exp $
@@ -28,9 +28,9 @@ module CGI
 
 import URLEncoding
 import Data.Maybe
-import Control.Exception
 import Control.Monad
 import System.IO
+import System.IO.Error
 import System.Environment
 
 runCGI :: (HTTPRequest -> IO HTTPResponse) -> IO ()
@@ -48,8 +48,9 @@ runCGI f = do hSetBinaryMode stdin True
 cgiEnvs = return . catMaybes =<< mapM mGetEnvPair names
   where
     mGetEnvPair :: String -> IO (Maybe (String, String))
-    mGetEnvPair name = catch (return . Just . (,) name =<< getEnv name)
-                             (\(_::IOError) -> return Nothing)
+    mGetEnvPair name =
+      catchIOError (return . Just . (,) name =<< getEnv name)
+                   (const $ return Nothing)
 
     names = [ "SERVER_NAME", "SERVER_PORT",
               "SERVER_SOFTWARE", "SERVER_PROTOCOL",
