@@ -8,17 +8,10 @@
 -- Stability   :  experimental
 -- Portability :  non-portable
 
-{-# LANGUAGE CPP #-}
 module Main where
 import Report
 import Version
-#ifdef USE_UTF8
-import Prelude hiding (putStr, putStrLn, getLine)
-import System.IO (stdout, hSetBuffering, BufferMode (..))
-import System.IO.UTF8
-#else
 import System.IO
-#endif
 
 main :: IO ()
 main = do

@@ -24,7 +24,7 @@
 module CGI
   (runCGI,
    HTTPRequest, varExist, lookupVar, lookupVars,
-   HTTPResponse(..), httpResponseToString, textContentType) where
+   HTTPResponse(..), textContentType) where
 
 import URLEncoding
 import Data.Maybe
@@ -32,17 +32,18 @@ import Control.Exception
 import Control.Monad
 import System.IO
 import System.Environment
-#ifdef USE_UTF8
-import qualified Codec.Binary.UTF8.String as UTF8
-#endif
 
 runCGI :: (HTTPRequest -> IO HTTPResponse) -> IO ()
 runCGI f = do hSetBinaryMode stdin True
-              hSetBinaryMode stdout True
+              -- hSetBinaryMode stdout True
+              hSetEncoding stdout utf8
+              hSetNewlineMode stdout noNewlineTranslation
               input <- getContents
               env <- cgiEnvs
-              res <- f (parseCGIRequest env input)
-              putStr (httpResponseToString' res)
+              res@(HTTPResponse ctype body) <- f (parseCGIRequest env input)
+              putStr $ "Content-Type: " ++ ctype ++ "\r\n"
+              putStr "\r\n"
+              putStr body
 
 cgiEnvs = return . catMaybes =<< mapM mGetEnvPair names
   where
@@ -115,26 +116,5 @@ data HTTPResponse = HTTPResponse {
     resContentType :: String,
     resBody :: String
 }
-
-instance Show HTTPResponse where
-    show = httpResponseToString
-
-httpResponseToString (HTTPResponse ctype body) =
-  concat [ "Content-Type: ", ctype, "\r\n",
-           "Content-Length: ", show (length body), "\r\n",
-           "\r\n",
-           body ]
-
-#ifdef USE_UTF8
-httpResponseToString' (HTTPResponse ctype body) =
-  concat [ "Content-Type: ", ctype, "\r\n",
-           "Content-Length: ", show (length body'), "\r\n",
-           "\r\n",
-           body' ]
-  where
-    body' = UTF8.encodeString body
-#else
-httpResponseToString' = httpResponseToString
-#endif
 
 textContentType typ encoding = concat [typ, "; charset=\"", encoding, "\""]

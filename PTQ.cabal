@@ -45,10 +45,9 @@ Executable ptq
      MultiParamTypeClasses
      TypeOperators
      TypeSynonymInstances
-  Build-Depends: base >=4 && <5, mtl, containers
+  Build-Depends: base >=4.2 && <5, mtl, containers
   if flag(UTF8Terminal)
     CPP-Options: "-DUSE_UTF8"
-    Build-Depends: utf8-string
 
 Executable ptq.cgi
   Main-Is: CGIMain.hs
@@ -71,7 +70,6 @@ Executable ptq.cgi
      ScopedTypeVariables
      FlexibleInstances
      CPP
-  Build-Depends: base >=4 && <5, mtl, containers, network, xml
+  Build-Depends: base >=4.2 && <5, mtl, containers, network, xml
   if flag(UTF8CGI)
     CPP-Options: "-DUSE_UTF8"
-    Build-Depends: utf8-string
