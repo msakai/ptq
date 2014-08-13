@@ -6,8 +6,6 @@ An implementation of Montague's PTQ in Haskell
 Build and Install
 -----------------
 
-You'll need GHC 6.7 or later.
-
     % cabal configure
     % cabal build
     % cabal install
