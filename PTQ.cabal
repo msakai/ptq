@@ -12,7 +12,7 @@ Description:     An implementation of Montague's PTQ (Proper Treatment of Quanti
 Cabal-Version:   >= 1.2.3
 Stability:       experimental
 Extra-Source-Files:
-   README, COPYING, .travis.yml,
+   README.md, COPYING, .travis.yml,
    src/Context.hs, src/MP.hs, src/PDict.hs, src/ParserTest.hs,
    misc/Test.hs, misc/Test2.agda, misc/Test3.hs
 Data-Files: cgi/index.html, cgi/main.html
