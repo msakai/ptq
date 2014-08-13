@@ -9,7 +9,7 @@ Category:        Natural Language Processing
 Build-Type:      Simple
 Synopsis:        An implementation of Montague's PTQ.
 Description:     An implementation of Montague's PTQ (Proper Treatment of Quantification). It translates simple plain English sentences into formulas of intentional logic.
-Cabal-Version:   >= 1.2.3
+Cabal-Version:   >= 1.6
 Stability:       experimental
 Extra-Source-Files:
    README.md, COPYING, .travis.yml,
