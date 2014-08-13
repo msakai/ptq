@@ -9,7 +9,7 @@
 -- Portability :  non-portable
 
 {-# LANGUAGE TypeOperators, GADTs, EmptyDataDecls, MultiParamTypeClasses
-  , TypeSynonymInstances #-}
+  , TypeSynonymInstances, FlexibleInstances #-}
 
 module P
   ( Sen

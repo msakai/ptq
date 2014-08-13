@@ -8,7 +8,7 @@
 -- Stability   :  experimental
 -- Portability :  non-portable
 
-{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE GADTs, TypeOperators #-}
 module Parser (parse, parseAny) where
 
 import Data.Char

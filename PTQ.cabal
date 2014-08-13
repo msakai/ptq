@@ -12,7 +12,7 @@ Description:     An implementation of Montague's PTQ (Proper Treatment of Quanti
 Cabal-Version:   >= 1.2.3
 Stability:       experimental
 Extra-Source-Files:
-   README, COPYING
+   README, COPYING,
    src/Context.hs, src/MP.hs, src/PDict.hs, src/ParserTest.hs,
    misc/Test.hs, misc/Test2.agda, misc/Test3.hs
 Data-Files: cgi/index.html, cgi/main.html
@@ -45,7 +45,7 @@ Executable ptq
      MultiParamTypeClasses
      TypeOperators
      TypeSynonymInstances
-  Build-Depends: base >=4 && <5, haskell98, mtl, containers
+  Build-Depends: base >=4 && <5, mtl, containers
   if flag(UTF8Terminal)
     CPP-Options: "-DUSE_UTF8"
     Build-Depends: utf8-string
@@ -62,14 +62,16 @@ Executable ptq.cgi
      ReportHTML
      CGI
      URLEncoding
-  Extensions:
+  Other-Extensions:
      EmptyDataDecls
      GADTs
      MultiParamTypeClasses
      TypeOperators
      TypeSynonymInstances
+     ScopedTypeVariables
+     FlexibleInstances
      CPP
-  Build-Depends: base >=4 && <5, haskell98, mtl, containers, network, xml
+  Build-Depends: base >=4 && <5, mtl, containers, network, xml
   if flag(UTF8CGI)
     CPP-Options: "-DUSE_UTF8"
     Build-Depends: utf8-string
