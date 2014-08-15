@@ -24,10 +24,12 @@ Source-Repository head
 Flag UTF8Terminal
   Description: Use UTF-8 for terminal I/O
   Default: False
+  Manual: True
 
 Flag UTF8CGI
   Description: Use UTF-8 for HTTP contents
   Default: True
+  Manual: True
 
 Executable ptq
   Main-Is: Main.hs
