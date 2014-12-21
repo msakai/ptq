@@ -1,7 +1,7 @@
 An implementation of Montague's PTQ in Haskell
 ==============================================
 
-[![Build Status](https://secure.travis-ci.org/msakai/ptq.png?branch=master)](http://travis-ci.org/msakai/ptq)
+[![Build Status](https://secure.travis-ci.org/msakai/ptq.png?branch=master)](http://travis-ci.org/msakai/ptq) [![Hackage](https://budueba.com/hackage/PTQ)](https://hackage.haskell.org/package/PTQ)
 
 Build and Install
 -----------------
