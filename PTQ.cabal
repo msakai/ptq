@@ -31,6 +31,10 @@ Flag UTF8CGI
   Default: True
   Manual: True
 
+flag network-uri
+  description: Get Network.URI from the network-uri package
+  default: True
+
 Executable ptq
   Main-Is: Main.hs
   Hs-Source-Dirs: src
@@ -73,5 +77,9 @@ Executable ptq.cgi
      FlexibleInstances
      CPP
   Build-Depends: base >=4.4 && <5, mtl, containers, network, xml
+  if flag(network-uri)
+    build-depends: network-uri >= 2.6, network >= 2.6
+  else
+    build-depends: network-uri < 2.6, network < 2.6
   if flag(UTF8CGI)
     CPP-Options: "-DUSE_UTF8"
