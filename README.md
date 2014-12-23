@@ -42,4 +42,10 @@ CGI interface
 
 By locating ptq.cgi, cgi/index.html and cgi/main.html to the place
 where CGI is executable, you can try it on the web.
-Demo site runs at <http://www.tom.sfc.keio.ac.jp/~sakai/hsPTQ/>.
+Demo site runs at <http://www.tom.sfc.keio.ac.jp/~sakai/hsPTQ/> (currently not working).
+
+Haste interface
+---------------
+
+You can use [Haste](http://haste-lang.org/) to compile haste/* and run on your browsers.
+Demo site runs at <https://dl.dropboxusercontent.com/u/123796/app/ptq/index.html>.
