@@ -4,7 +4,7 @@ License:         LGPL
 License-File:    COPYING
 Author:          Masahiro Sakai
 Maintainer:      Masahiro Sakai <masahiro.sakai AT gmail.com>
-Homepage:        http://www.tom.sfc.keio.ac.jp/~sakai/hiki/?hsPTQ
+Homepage:        http://msakai.jp/hiki/?hsPTQ
 Category:        Natural Language Processing
 Build-Type:      Simple
 Synopsis:        An implementation of Montague's PTQ.
