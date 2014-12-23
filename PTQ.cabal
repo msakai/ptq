@@ -15,7 +15,7 @@ Extra-Source-Files:
    README.md, COPYING, .travis.yml,
    src/Context.hs, src/MP.hs, src/PDict.hs, src/ParserTest.hs,
    misc/Test.hs, misc/Test2.agda, misc/Test3.hs,
-   haste/index.html, haste/ptq.js, haste/Makefile
+   haste/index.html, haste/ptq.hs, haste/Makefile
 Data-Files: cgi/index.html, cgi/main.html
 
 Source-Repository head
