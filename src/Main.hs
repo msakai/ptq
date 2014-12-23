@@ -10,7 +10,8 @@
 
 module Main where
 import Report
-import Version
+import Paths_PTQ
+import Data.Version
 import System.IO
 
 main :: IO ()
@@ -21,7 +22,7 @@ main = do
 
 banner :: String
 banner = unlines
-  [ "PTQ version " ++ versionStr
+  [ "PTQ version " ++ showVersion version
   , ""
   , "Type :quit to quit"
   ]

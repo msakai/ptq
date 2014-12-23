@@ -44,7 +44,7 @@ Executable ptq
      Translation
      Parser
      Report
-     Version
+     Paths_PTQ
   Extensions:
      EmptyDataDecls
      GADTs
@@ -63,7 +63,6 @@ Executable ptq.cgi
      P
      Translation
      Parser
-     Version
      ReportHTML
      CGI
      URLEncoding
