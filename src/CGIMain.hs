@@ -25,7 +25,7 @@ appMain :: HTTPRequest -> IO HTTPResponse
 appMain req = return $ 
     case lookupVar "s" req of
     Nothing ->
-	HTTPResponse (textContentType "text/plain" "us-ascii") "(no input)\n"
+        HTTPResponse (textContentType "text/plain" "us-ascii") "(no input)\n"
     Just s  ->
-	--HTTPResponse (textContentType "text/plain" "utf-8") (report s)
+        --HTTPResponse (textContentType "text/plain" "utf-8") (report s)
         HTTPResponse (textContentType "text/html" "utf-8") (report s)

@@ -37,8 +37,8 @@ type Name = String
 {-
 inst :: Expr (c :* a) b -> Expr c a -> Expr c b
 inst (B v) x = case v of
-	       B0    -> x
-	       BS v  -> B v
+               B0    -> x
+               BS v  -> B v
 inst (a :@ b) x = inst a x :@ inst b x
 inst (Lam a) x  =
     case x of
@@ -63,14 +63,14 @@ f x g =
 -}
 
 shift' :: forall c d e e' u t.
-	  (Append c d e, Append (c :* u) d e') =>
+          (Append c d e, Append (c :* u) d e') =>
           (forall t. BVar e t -> BVar e' t) ->
-	  Expr e t -> Expr e' t
+          Expr e t -> Expr e' t
 shift' v (a :@ b) = shift' v a :@ shift' v b
 shift' v (B x)    = B (v x)
 shift' v (Lam x)  = Lam (shift' v' x)
     where v' B0     = B0
-	  v' (BS x) = BS (v x)
+          v' (BS x) = BS (v x)
 
 shift0 :: Expr c t -> Expr (c :* u) t
 shift0 (a :@ b) = shift0 a :@ shift0 b

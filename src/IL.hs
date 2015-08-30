@@ -227,7 +227,7 @@ renderExpr unicode uncurrying d e =
                $ a' . showChar ' ' . showString s . showChar ' ' . b'
         where
           (s,prec,l,r) =
-      	    case op of
+            case op of
               And   -> (if unicode then "∧" else "&&",  4, id, id)     -- ∧ (U+2227)
               Or    -> (if unicode then "∨" else "||",  3, id, id)     -- ∨ (U+2228)
               Imply -> (if unicode then "→" else "->",  1, (+1), id)   -- → (U+2192)

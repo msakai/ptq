@@ -37,7 +37,7 @@ abstract :: Name -> Expr t -> Scope t
 abstract name expr = Sc (h 0 expr)
   where
     h outer (FVar name') | name==name' = BVar 0
-			 | otherwise   = FVar name'
+                         | otherwise   = FVar name'
     h outer (BVar index) = BVar index
 
 -- instantiate :: Expr u -> Scope t -> Expr t
