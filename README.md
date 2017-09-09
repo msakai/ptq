@@ -48,4 +48,4 @@ Haste interface
 ---------------
 
 You can use [Haste](http://haste-lang.org/) to compile haste/* and run on your browsers.
-Demo site runs at <https://dl.dropboxusercontent.com/u/123796/app/ptq/index.html>.
+Demo site runs at <http://msakai.github.io/ptq/demo/index.html>.
