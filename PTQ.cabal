@@ -11,6 +11,11 @@ Synopsis:        An implementation of Montague's PTQ.
 Description:     An implementation of Montague's PTQ (Proper Treatment of Quantification). It translates simple plain English sentences into formulas of intentional logic.
 Cabal-Version:   >= 1.6
 Stability:       experimental
+Tested-With:
+   GHC ==7.8.4
+   GHC ==7.10.3
+   GHC ==8.0.1
+   GHC ==8.2.1
 Extra-Source-Files:
    README.md, COPYING, .travis.yml,
    src/Context.hs, src/MP.hs, src/PDict.hs, src/ParserTest.hs,
