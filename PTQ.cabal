@@ -49,6 +49,7 @@ Executable ptq
      P
      Translation
      Parser
+     MP
      Report
      Paths_PTQ
   Extensions:
@@ -69,6 +70,7 @@ Executable ptq.cgi
      P
      Translation
      Parser
+     MP
      ReportHTML
      CGI
      URLEncoding
