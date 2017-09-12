@@ -17,7 +17,7 @@ Tested-With:
    GHC ==8.0.1
    GHC ==8.2.1
 Extra-Source-Files:
-   README.md, COPYING, .travis.yml,
+   README.md, COPYING,
    src/Context.hs, src/MP.hs, src/PDict.hs, src/ParserTest.hs,
    misc/Test.hs, misc/Test2.agda, misc/Test3.hs,
    haste/index.html, haste/ptq.hs, haste/Makefile
